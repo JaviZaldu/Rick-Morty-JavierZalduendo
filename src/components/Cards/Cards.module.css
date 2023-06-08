@@ -1,0 +1,10 @@
+.Cards {
+  display: grid;
+  grid-template-columns: repeat(5 , 1fr);
+  grid-gap: 40px;
+  justify-items: center;
+  align-items: center;
+  margin-right: 100px;
+  margin-left: 100px;
+  margin-top: 40px;
+}

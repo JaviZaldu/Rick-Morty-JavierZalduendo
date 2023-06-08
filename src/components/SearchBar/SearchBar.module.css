@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  align-items: center;
+  padding: 2%;
+  justify-content: center;
+  margin-left: 300px;
+}
+
+.imput {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+  width: 500%;
+  background-color: rgba(248, 248, 248, 0.20);
+  color: #fff;
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(248, 248, 248, 0.20);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rgba(248, 248, 248, 0.50);
+  color: #000000;
+}

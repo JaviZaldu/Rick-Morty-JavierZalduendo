@@ -1,0 +1,40 @@
+.Nav {
+    display: flex;
+    align-items: center;
+    padding: 2%;
+    justify-content: center;
+  }
+  
+  .random {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(248, 248, 248, 0.20);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 300px;
+  }
+  
+  .random:hover {
+    background-color: rgba(248, 248, 248, 0.50);
+    color: #000000;
+  }
+
+
+  .Navlink{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-right: 20px;
+    width: 10%;
+    background-color: rgba(248, 248, 248, 0.20);
+    color: #fff;
+    text-decoration: none;
+  }
+  .Navlink:hover {
+    background-color: rgba(248, 248, 248, 0.50);
+    color: #000000;
+  }
+  
