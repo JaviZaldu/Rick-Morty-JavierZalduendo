@@ -1,32 +1,39 @@
 export const ADD_FAV = "ADD_FAV";
 export const REMOVE_FAV = "REMOVE_FAV";
-export const FILTER = "FILTER";
 export const ORDER = "ORDER";
+export const FILTER = "FILTER";
+export const RESET = "RESET";
 
 export function addFavorite(character) {
   return {
-    type: "ADD_FAV",
+    type: ADD_FAV,
     payload: character,
   };
 }
 
 export function removeFavorite(id) {
   return {
-    type: "REMOVE_FAV",
+    type: REMOVE_FAV,
     payload: id,
   };
 }
 
-export function filterCards(gender) {
+export function orderFavorites(order) {
   return {
-    type: "FILTER",
+    type: ORDER,
+    payload: order,
+  };
+}
+
+export function filterFavorites(gender) {
+  return {
+    type: FILTER,
     payload: gender,
   };
 }
 
-export function orderCards(orden) {
+export function resetFavorites() {
   return {
-    type: "ORDER",
-    payload: orden,
+    type: RESET,
   };
 }

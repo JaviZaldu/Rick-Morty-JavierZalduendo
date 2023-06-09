@@ -1,50 +1,55 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from './actions';
+import {ADD_FAV, REMOVE_FAV, ORDER, FILTER, RESET} from "./actions";
 
-let initialState = { myFavorites: [] };
+let initialState = {myFavorites: [], allCharacters: []};
 
-function rootReducer(state = initialState, action) {
+export default function rootReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_FAV:
-      const added = [...state.myFavorites, action.payload];
       return {
         ...state,
-        myFavorites: added,
+        myFavorites: [...state.myFavorites, action.payload],
+        allCharacters: [...state.myFavorites, action.payload],
       };
 
     case REMOVE_FAV:
-      const remove = state.myFavorites.filter(
-        (characters) => characters.id !== Number(action.payload)
-      );
       return {
         ...state,
-        myFavorites: [...remove],
+        myFavorites: state.myFavorites.filter(
+          (character) => character.id !== Number(action.payload)
+        ),
       };
 
-      case FILTER:
-        const filtered = state.allCharacters.filter(
-          (character) => character.gender === action.payload
-        );
-        return {
-          ...state,
-          myFavorites: filtered,
-        };
-  
     case ORDER:
-      const sorted = [...state.myFavorites];
-      if (action.payload === 'A') {
-        sorted.sort((a, b) => a.id - b.id);
-      } else if (action.payload === 'D') {
-        sorted.sort((a, b) => b.id - a.id);
+      let ordenados;
+      if (action.payload === "Ascendente") {
+        ordenados = state.myFavorites.sort((a, b) => (a.id > b.id ? 1 : -1));
+      } else {
+        ordenados = state.myFavorites.sort((a, b) => (b.id > a.id ? 1 : -1));
       }
+
       return {
         ...state,
-        myFavorites: sorted,
+        myFavorites: [...ordenados],
       };
-  
+
+    case FILTER:
+      return {
+        ...state,
+        myFavorites: state.allCharacters.filter(
+
+          (character) => character.gender === action.payload
+        ),
+      };
+
+    case RESET:
+      return {
+        ...state,
+        myFavorites: state.allCharacters,
+      };
+
     default:
-      return state;
+      return {
+        ...state,
+      };
   }
 }
-  
-
-export default rootReducer;

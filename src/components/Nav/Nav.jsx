@@ -1,9 +1,11 @@
 import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import styles from "./Nav.module.css"
 
 export default function NavBar({onSearch, random}) {
+  const location = useLocation();
+  const isHome = location.pathname === '/home';
   return (
     <div className={`${styles.Nav}`}>
       <div>
@@ -11,12 +13,18 @@ export default function NavBar({onSearch, random}) {
         <NavLink to="/home" className={`${styles.Navlink}`}>HOME</NavLink>
         <NavLink to="/favorites" className={`${styles.Navlink}`}>FAVS</NavLink>
       </div>
-
-      <SearchBar onSearch={onSearch} />
-
-      <button className={`${styles.random}`} onClick={random}>
-        ADD RANDOM
-      </button>
+      {isHome && (
+        <div>
+          <SearchBar onSearch={onSearch} />
+          </div>
+          )}
+      {isHome && (
+          <div>
+          <button className={`${styles.random}`} onClick={random}>
+            ADD RANDOM
+          </button>
+        </div>
+      )}
     </div>
   );
 }

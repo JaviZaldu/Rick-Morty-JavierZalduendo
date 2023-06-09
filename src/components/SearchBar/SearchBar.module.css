@@ -3,7 +3,6 @@
   align-items: center;
   padding: 2%;
   justify-content: center;
-  margin-left: 300px;
 }
 
 .imput {
@@ -11,7 +10,7 @@
   border: none;
   border-radius: 10px;
   font-size: 16px;
-  margin-right: 10px;
+  margin-right: 15px;
   width: 500%;
   background-color: rgba(248, 248, 248, 0.20);
   color: #fff;

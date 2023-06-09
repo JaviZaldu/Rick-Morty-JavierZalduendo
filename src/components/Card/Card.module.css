@@ -30,7 +30,7 @@
 }
 
 .boton {
-  background-color: rgba(248, 248, 248, 0.20);
+  background-color: transparent;
   border-radius: 50%;
   border: none;
   color: #000000;
@@ -44,7 +44,7 @@
 }
 
 .corazon {
-  background-color: rgba(248, 248, 248, 0.20);
+  background-color: transparent;
   border-radius: 50%;
   cursor: pointer;
   border: none;

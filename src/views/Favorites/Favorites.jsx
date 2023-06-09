@@ -1,52 +1,47 @@
-import { connect } from 'react-redux';
-import Cards from '../../components/Cards/Cards';
-import { orderCards, filterCards } from '../../redux/actions';
-import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+// import {connect} from "react-redux";
+import Cards from "../../components/Cards/Cards";
+import { useSelector, useDispatch} from "react-redux";
+import { orderFavorites, filterFavorites, resetFavorites} from "../../redux/actions";
+import styles from "./Favorites.module.css"
 
-function Favorites(props) {
+export default function Favorites() {
   const dispatch = useDispatch();
-  const [aux, setAux] = useState(false);
+  const favorites = useSelector((state) => state.myFavorites);
 
-  const handleOrder = (e) => {
-    dispatch(orderCards(e.target.value));
-  };
+  function handleSort(e) {
+    dispatch(orderFavorites(e.target.value));
+  }
 
-  const handleFilter = (e) => {
-    const value = e.target.value;
-    if (value === 'All') {
-      setAux(true);
-    } else {
-      setAux(false);
-      dispatch(filterCards(value));
-    }
-  };
+  function handleFilter(e) {
+    dispatch(filterFavorites(e.target.value));
+  }
+
+  function handleReset() {
+    dispatch(resetFavorites());
+  }
 
   return (
     <div>
-      <select onChange={handleOrder}>
-        <option value="A">Ascendente</option>
-        <option value="D">Descendente</option>
+      <select className={styles.filter} placeholder="Gender" onChange={handleFilter}>
+        {["Male", "Female", "unknown", "Genderless"].map((gender) => (
+          <option className={styles.filter} value={gender}>{gender}</option>
+        ))}
       </select>
-
-      <select onChange={handleFilter}>
-        <option value="All">Mostrar todos</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="Genderless">Genderless</option>
-        <option value="unknown">Unknown</option>
+      <select className={styles.filter} placeholder="Orden" onChange={handleSort}>
+        {["Ascendente", "Descendente"].map((order) => (
+          <option className={styles.filter} value={order}>{order}</option>
+        ))}
       </select>
-
-      <Cards characters={aux ? props.allCharacters : props.favorites} />
+      <button className={styles.filter} onClick={handleReset}>Reset</button>
+      <Cards characters={favorites} />
     </div>
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    favorites: state.myFavorites,
-    allCharacters: state.allCharacters,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     favorites: state.myFavorites,
+//   };
+// };
 
-export default connect(mapStateToProps, null)(Favorites);
+// export default connect(mapStateToProps, null)(Favorites);

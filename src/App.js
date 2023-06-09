@@ -19,7 +19,7 @@ function App() {
    const navigate = useNavigate();
     
   const EMAIL = "javier@gmail.com";
-  const PASSWORD = "password1";
+  const PASSWORD = "123456";
 
   function loginHandler(userData) {
     if (userData.password === PASSWORD && userData.email === EMAIL) {

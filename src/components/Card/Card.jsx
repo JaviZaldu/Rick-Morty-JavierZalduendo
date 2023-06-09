@@ -46,13 +46,12 @@ function Card(props) {
           onClick={() => {
             onClose(character.id);
           }}
-        >
-          X
+        >✖
         </button>)}
         {fav ? (
           <button className={style.corazon} onClick={() => favoriteHandler(character.id)}>❤️</button>
         ) : (
-          <button className={style.corazon} onClick={() => favoriteHandler(character)}>🤍</button>
+          <button className={style.corazon} onClick={() => favoriteHandler(character)}>💔</button>
         )}
       </div>
       <div>

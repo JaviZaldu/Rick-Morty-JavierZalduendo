@@ -2,7 +2,9 @@
     display: flex;
     align-items: center;
     padding: 2%;
-    justify-content: center;
+    justify-content: space-between;
+    width: 95%;
+
   }
   
   .random {
@@ -13,14 +15,12 @@
     color: #fff;
     font-size: 16px;
     cursor: pointer;
-    margin-left: 300px;
   }
   
   .random:hover {
     background-color: rgba(248, 248, 248, 0.50);
     color: #000000;
   }
-
 
   .Navlink{
     padding: 10px;
@@ -37,4 +37,3 @@
     background-color: rgba(248, 248, 248, 0.50);
     color: #000000;
   }
-  
